@@ -6,14 +6,15 @@
     undefined4 main(undefined4 param_1, int param_2)
     {
     undefined4 uVar1;
-    undefined1 local_3c [40];  // buffer de 40 octets
-    int local_14;              // variable pour stocker le nombre
+    undefined1 local_3c [40]; // 40 bytes buffer
+    int local_14;
     
-    local_14 = atoi(*(char **)(param_2 + 4));  // argv[1] converti en int
-    if (local_14 < 10) {                        // doit être < 10
-        memcpy(local_3c, *(void **)(param_2 + 8), local_14 * 4);  // copie argv[2]
-        if (local_14 == 0x574f4c46) {             // si == 1464814662
-        execl("/bin/sh","sh",0);                 // SHELL !
+    local_14 = atoi(*(char **)(param_2 + 4)); // argv[1]
+    
+    if (local_14 < 10) { // should be < 10
+        memcpy(local_3c, *(void **)(param_2 + 8), local_14 * 4);  // argv[2]
+        if (local_14 == 0x574f4c46) { // 1464814662
+           execl("/bin/sh","sh",0); // SHELL !
         }
         uVar1 = 0;
     }
